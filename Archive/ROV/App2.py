@@ -18,8 +18,8 @@ from time import sleep
 ###### CONSTANTS ######
 NUM_MOTORS = 5
 #Pins changed to be fixed
-thrustPins = [7,8,9,10,11,12] #Order: Fr L, Fr R, Ba R, Ba L, Vert1, Vert2
-dirPins = [20,22,24,26,28,30]
+thrustPins = [2,3,4,5,6,7] #Order: Fr L, Fr R, Ba R, Ba L, Vert1, Vert2
+dirPins = [22,24,26,28,30,32]
 
 #servoPin = 8 #Claw signal pin I need the correct pin here
 CLAW_MIN = 103
