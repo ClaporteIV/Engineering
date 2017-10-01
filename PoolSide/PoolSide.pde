@@ -34,7 +34,7 @@ int CLAW_MAX = 50;
 int clawValue;
 int previousClaw;
 
-String SERVER_PATH = "http://169.254.226.122:5000/";
+String SERVER_PATH = "http://172.31.17.88:5000/";
 String MOTOR_PATH = "motorData?";
 String CLAW_PATH = "clawData?";
 String[] varNames = {"motor0=", "motor1=", "motor2=", "motor3=", "motor4="};
@@ -70,13 +70,14 @@ void draw() {
   text("Motor 3: " + str(thrustValues[3]), 25, 100);
   text("Motor 4: " + str(thrustValues[4]), 25, 125);
   text("Claw: " + str(clawValue), 25, 150);
+  text("test:" + xbox.getSlider("leftStickX").getValue(), 25, 175);
   
   // Resets motor values to 0 when keys aren't pressed
-  /*if (!keyPressed) {
+  if (!keyPressed) {
     for (int i = 0; i < NUM_MOTORS - 1; i++) {
       thrustValues[i] = 0;
     }
-  }*/
+  }
   // Only sends data if the data is different. More efficient
   for (int i = 0; i < NUM_MOTORS; i++) {
     if (thrustValues[i] != previousValues[i]) {
@@ -126,10 +127,10 @@ void getControlValues() {
   leftStickY = xbox.getSlider("leftStickY").getValue();
   rightStickX = xbox.getSlider("rightStickX").getValue();
   rightStickY = xbox.getSlider("rightStickY").getValue();
-  leftTrigger = xbox.getSlider("leftTrigger").getValue();
-  rightTrigger = xbox.getSlider("rightTrigger").getValue();
-  leftBumper = xbox.getButton("leftBumper").pressed();
-  rightBumper = xbox.getButton("rightBumper").pressed();
+  //leftTrigger = xbox.getSlider("leftTrigger").getValue();
+  //rightTrigger = xbox.getSlider("rightTrigger").getValue();
+  //leftBumper = xbox.getButton("leftBumper").pressed();
+  //rightBumper = xbox.getButton("rightBumper").pressed();
 }
 
 float[] getTranslation(float x, float y) {
@@ -192,7 +193,7 @@ void setClawBetter(boolean left, boolean right) {
   }
 }
   
-/*
+
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == UP) {
@@ -221,4 +222,3 @@ void keyPressed() {
     }
   }
 }
-*/
